@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-02 10:16+0800\n"
+"POT-Creation-Date: 2016-05-04 11:33+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,14 +17,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: /home/liuxg/release/rssreader/rssreader/Main.qml:25
+#: /home/liuxg/release1/rssreader_listview/rssreader/Main.qml:25
 msgid "POCO 摄影"
 msgstr ""
 
-#: /home/liuxg/release/rssreader/rssreader/Main.qml:51
+#: /home/liuxg/release1/rssreader_listview/rssreader/Main.qml:51
 msgid "Content"
 msgstr ""
 
-#: /home/liuxg/release/build-rssreader-Ubuntu_SDK_Desktop_Kit-Debug/rssreader/rssreader.desktop.h:1
+#: /home/liuxg/release1/build-rssreader-Ubuntu_SDK_Desktop_Kit-Debug/rssreader/rssreader.desktop.h:1
 msgid "rssreader"
 msgstr ""

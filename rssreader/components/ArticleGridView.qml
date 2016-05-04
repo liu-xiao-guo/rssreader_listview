@@ -19,17 +19,24 @@ Item {
     }
 
     XmlListModel {
-        id: pocoRssModel
-        source: "http://my.poco.cn/rss_gen/poco_rss_channel.photo.php?sub_icon=figure"
-        query: "/rss/channel/item[child::enclosure]"
+        id: picoRssModel
+        source: "http://www.8kmm.com/rss/rss.aspx"
+        query: "/rss/channel/item"
 
         onStatusChanged: {
             if (status === XmlListModel.Ready) {
                 for (var i = 0; i < count; i++) {
-                    //  console.log("title: " + get(i).title);
-                    //  console.log("published: " + get(i).published );
-                    //  console.log("image: " + get(i).image);
-                    console.log("image: " + get(i).content);
+                    // Let's extract the image
+                    var m,
+                        urls = [],
+                        str = get(i).content,
+                        rex = /<img[^>]+src\s*=\s*['"]([^'"]+)['"][^>]*>/g;
+
+                    while ( m = rex.exec( str ) ) {
+                        urls.push( m[1] );
+                    }
+
+                    var image = urls[0];
 
                     var title = get(i).title.toLowerCase();
                     var published = get(i).published.toLowerCase();
@@ -37,13 +44,13 @@ Item {
                     var word = input.text.toLowerCase();
 
                     if ( (title !== undefined && title.indexOf( word) > -1 )  ||
-                            (published !== undefined && published.indexOf( word ) > -1) ||
-                            (content !== undefined && content.indexOf( word ) > -1) ) {
+                         (published !== undefined && published.indexOf( word ) > -1) ||
+                         (content !== undefined && content.indexOf( word ) > -1) ) {
 
-                        model.append({"title": get(i).title,
+                            model.append({"title": get(i).title,
                                          "published": get(i).published,
                                          "content": get(i).content,
-                                         "image": get(i).image
+                                         "image": image
                                      })
                     }
                 }
@@ -53,7 +60,6 @@ Item {
         XmlRole { name: "title"; query: "title/string()" }
         XmlRole { name: "published"; query: "pubDate/string()" }
         XmlRole { name: "content"; query: "description/string()" }
-        XmlRole { name: "image"; query: "enclosure/@url/string()" }
     }
 
     GridView {
